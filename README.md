@@ -32,6 +32,53 @@ https://pypi.org/project/linformer-pytorch/
 
 ## IMDB
 
+### Hardware
+
+All experiments on the IMDB dataset were performed on a laptop with an Intel(R) Core(TM) i7-10870H processor. The machine had 16 GB of RAM and used an NVIDIA Geforce RTX 3070.
+
+### Model and Dataset
+
+We experimented on the IMDB dataset. This dataset labeled the sentiment of sentences as either positive or negative from 50K movie reviews. The following models performed inference on this dataset:
+
+* Bigbird
+* Longformer
+
+The following models were trained and evaluated on this dataset:
+
+* Performer
+* Linformer
+
+### Code 
+
+We had the Bigbird model, the Longformer model, Performer model, and Linformer model classify the movie reviews. The Bigbird and Longformer model were imported from the *Huggingface* transformers python package and used scripts provided by that package. Attempting to train these Huggingface models resulted in CUDA out-of-memory errors on my machine, so we only performed inference on the IMDB dataset for these models without fine-tuning. The Performer model can be found in IMDB/performer_model.py and was copied from https://github.com/lucidrains/performer-pytorch with a slight modification to perform binary classification of text. The Linformer model can be found in IMDB/linformer_lm.py and was copied from https://github.com/lucidrains/linformer with a slight modification to allow binary classification of text.
+
+### Experiments
+
+The Linformer and Performer models were trained with a batch size of 128 and a learning rate 1e-4 with varying depth sizes of 1, 2, and 3. To ensure that training was completed in a reasonable time, the training set was reduced to 10000 reviews and the validation set to 5000 reviews. The random seed was set to 0 before the data was sampled to ensure that every model received the same reviews in the training and validation sets. A tokenizer from the *Huggingface* transformers module was used for both models, meaning that both models used a vocabulary size of 50272 and a max sequence length of 4096. An embedding size of 64 was used with 4 heads for each model. All other model parameters used the defaults specified in the model files. The models were trained for 10 epochs with evaluations on the validation set occuring after every training loop. The total time it took for the models to perform all training and validation was recorded.
+
+Inference for the Bigbird and Longformer models occurred over all 25K reviews in the validation data set. Both models were pretrained and used tokenizers optimized for their performance.
+
+### Performance
+
+![IMDB Training Time](/imdb/seq_training_time.PNG)
+
+Here we can see the Performer model took longer to train than the Linformer model at every depth level (2010, 3004, and 3990 seconds for the Performer model at depths of 1, 2, and 3 as opposed to 1481, 1909, 2428 seconds for the Linformer model at depths of 1, 2, and 3). Furthermore, the magnitude of increase when the depth level increases is higher for the Performer model than the Linformer model (the total training time increases by approximately 1000 seconds for the Performer model when the depth level increases by 1 while the total training time for the Linformer model increases by approximately 500 seconds).
+
+![IMDB Training Accuracy](/imdb/seq_training_acc.PNG)
+![IMDB Validation Accuracy](/imdb/seq_validation_acc.PNG)
+
+We can also see that the Linformer models outperformed the Performer models at all depth levels. Furthermore, it appears that the models with higher depth sizes were outperformed by models with lower depth sizes. I am unsure why this occurred. It is clear that this is not due to overfitting since the models with lower depth sizes perform better on the training set as well as the validation set. Furthermore, it doesn't seem likely that this result was a product of the short training time as the Linformer model was able to achieve above 95% accuracy on the training set for depth sizes of 1 and 2. However, it is possible that this occurred due to poor hyperparameter selection. Due to time constraints, it was not possible to perform a thorough hyperparameter search, so larger depth sizes may have required different hyperparameters such as a more aggressive learning rate or a larger embedding size. Regardless, it is likely that the models would have had better performance if allowed to train on the entire dataset. As mentioned previously, the models only trained on 1/5 of the training samples available in the IMDB dataset due to time constraints. Training on all 25K would have allowed for the models to generalize better and learn more patterns.
+
+![IMDB Inference Time](/imdb/seq_inference.PNG)
+
+The inference times for the Bigbird and Longformer models are shown above. The Bigbird model took 422 seconds to completely evaluate all reviews while the Longformer model took 2070 seconds. The Bigbird model however achieved an accuracy of 0.46 while the Longformer model achieved an accuracy of 0.5.
+
+### Conclusion
+
+In a comparison between the Performer and Linformer model, it appears that the Linformer model outperformed the Performer model in both accuracy and time on the IMDB dataset. Furthermore, it appears that lower depth sizes took less time and had better results. It is important to note that a thorough hyperparameter search did not occur for either model, so there could be hyperparameter combinations where the Performer model outperforms the Linformer model and where higher depth sizes outperform lower depth sizes.
+
+When it comes to inference, it appears that the Bigbird model is superior to the Longformer model in speed. However, the Longformer did outperform the Bigbird in accuracy. Note that no fine-tuning occurred, however, so we cannot determine which model would have higher classification accuracy after they are trained.
+
 ## SST2
 
 ### Model and Dataset
