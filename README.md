@@ -148,7 +148,13 @@ When looking at the other two models (Bigbird and Longformer), I was able to suc
 
 ### Model and Dataset
 
-We conducted the following experiments on QNLI dataset.
+We explored the QNLI (Stanford Question Answering) dataset. The dataset
+consists of question-paragraph pairs where one of the sentences in the
+paragraph (drawn from wikipedia) contains the answer to the corresponding
+question. The task is converted to into sentence pair classification by forming
+a pair between each question and each sentence in the corresponding text, and
+filtering out pairs with low lexical overlap. The task is to determine whether
+the sentence contains the answer to the question.
 
 The following models were trained and evaluated on the dataset:
 
