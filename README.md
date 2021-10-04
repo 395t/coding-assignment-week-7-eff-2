@@ -175,4 +175,46 @@ The following models were trained and evaluated on the dataset:
 - Longformer
 - Linformer
 
+
+
+### Code
+
+The experiments can be reproduced by running the script `run_glue.py` (under the path `./qnli`) by the following commands:
+
+1. Longformer
+
+```
+python run_glue.py \
+  --model_name_or_path allenai/longformer-base-4096 \
+  --task_name qnli \
+  --do_train \
+  --do_eval \
+  --max_seq_length 128 \
+  --per_device_train_batch_size 4 \
+  --learning_rate 2e-5 \
+  --num_train_epochs 3 \
+  --output_dir ../exp/qnli_longformer/
+```
+
+2. Linformer
+
+```
+python run_glue.py \
+  --model_name_or_path linformer \
+  --task_name qnli \
+  --do_train \
+  --do_eval \
+  --max_seq_length 128 \
+  --per_device_train_batch_size 4 \
+  --learning_rate 2e-5 \
+  --num_train_epochs 3 \
+  --output_dir ../exp/qnli_linformer/
+```
+
+
+
+### Experimental results
+
+
+
 ## QQP
