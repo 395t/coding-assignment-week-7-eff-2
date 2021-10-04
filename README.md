@@ -592,19 +592,12 @@ The results are presented in the following tables.
 
 **Big bird - eval metrics**
 
-
-
-| Metrics | |
-
+| Metrics            |            |
 | ------------------ | ---------- |
-
-| Accuracy | 0.9103 |
-
-| Runtime | 0:00:18.10 |
-
-| Samples | 5463 |
-
-| Samples per second | 301.797 |
+| Accuracy           | 0.9103     |
+| Runtime            | 0:00:18.10 |
+| Samples            | 5463       |
+| Samples per second | 301.797    |
 
 
 
@@ -614,19 +607,12 @@ The results are presented in the following tables.
 
 **Linformer - eval metrics**
 
-
-
-| Metrics | |
-
+| Metrics            |            |
 | ------------------ | ---------- |
-
-| Accuracy | 0.9079 |
-
-| Runtime | 0:00:08.31 |
-
-| Samples | 5463 |
-
-| Samples per second | 657.27 |
+| Accuracy           | 0.9079     |
+| Runtime            | 0:00:08.31 |
+| Samples            | 5463       |
+| Samples per second | 657.27     |
 
 
 
@@ -646,17 +632,12 @@ As shown in the tables, big bird model obtains a slight better result (i.e., 91.
 
 
 
-| Metrics | |
-
+| Metrics            |            |
 | ------------------ | ---------- |
-
-| Accuracy | 0.9162 |
-
-| Runtime | 0:01:48.54 |
-
-| Samples | 5463 |
-
-| Samples per second | 50.382 |
+| Accuracy           | 0.9162     |
+| Runtime            | 0:01:48.54 |
+| Samples            | 5463       |
+| Samples per second | 50.382     |
 
 
 
