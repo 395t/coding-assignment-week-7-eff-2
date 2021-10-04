@@ -215,6 +215,36 @@ python run_glue.py \
 
 ### Experimental results
 
+**Linformer - eval metrics**
+
+| Metrics            |            |
+| ------------------ | ---------- |
+| Accuracy           | 0.9079     |
+| Runtime            | 0:00:08.31 |
+| Samples            | 5463       |
+| Samples per second | 657.27     |
+
+
+
+
+
+**Big bird - eval metrics**
+
+| Metrics            |            |
+| ------------------ | ---------- |
+| Accuracy           | 0.9103     |
+| Runtime            | 0:00:18.10 |
+| Samples            | 5463       |
+| Samples per second | 301.797    |
+
+
+
+
+
+![](qnli_loss.png)
+
+
+
 
 
 ## QQP
