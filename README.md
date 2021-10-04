@@ -277,7 +277,7 @@ The results are presented in the following tables.
 
 As shown in the table, 
 
-
+![](qnli/qnli_accuracy.png)
 
 ![](qnli_loss.png)
 
