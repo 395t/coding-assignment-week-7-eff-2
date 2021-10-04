@@ -478,94 +478,53 @@ The experiments can be reproduced by running the script `./qnli/run_glue.py` by 
 
 1. Big bird
 
-
-
 ```
-
 python run_glue.py \
-
 --model_name_or_path google/bigbird-roberta-base \
-
 --task_name qnli \
-
 --do_train \
-
 --do_eval \
-
 --max_seq_length 128 \
-
 --per_device_train_batch_size 4 \
-
 --learning_rate 2e-5 \
-
 --num_train_epochs 3 \
-
 --output_dir ../exp/qnli_longformer/
-
 ```
 
 
 
 2. Linformer
 
-
-
 ```
-
 python run_glue.py \
-
 --model_name_or_path linformer \
-
 --task_name qnli \
-
 --do_train \
-
 --do_eval \
-
 --max_seq_length 128 \
-
 --per_device_train_batch_size 4 \
-
 --learning_rate 2e-5 \
-
 --num_train_epochs 3 \
-
 --output_dir ../exp/qnli_linformer/
-
 ```
 
 
 
 3. Longformer
 
-
-
 ```
-
-!python run_glue.py \
-
+python run_glue.py \
 --model_name_or_path allenai/longformer-base-4096 \
-
 --task_name qnli \
-
 --do_train \
-
 --do_eval \
-
 --max_seq_length 128 \
-
 --per_device_train_batch_size 64 \
-
 --learning_rate 2e-5 \
-
 --num_train_epochs 3 \
-
 --output_dir /tmp/qnli-longformer/ \
-
 --overwrite_output_dir \
-
 --gradient_checkpointing
-
 ```
 
 
