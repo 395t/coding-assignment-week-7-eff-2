@@ -339,7 +339,7 @@ As shown in the tables, big bird model obtains a slight better result (i.e., 91.
 
 
 
-We also present the Longformer evaluation result in the table. As for performance, the Longformer obtain the best accuracy among all three methods, which shows the effectiveness of the ability to capture long-term context. Note that the runtime is computed on very different hardware, thus it can not be compared with the aforementioned result.
+We also present the Longformer evaluation result in the table. As for performance, the Longformer obtain the best accuracy among all three methods, which shows the effectiveness of the ability to capture long-term context. Note that the runtime is computed on a very different hardware, thus it can not be directly compared with the other two methods.
 
 
 
