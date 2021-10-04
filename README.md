@@ -160,6 +160,7 @@ The following models were trained and evaluated on the dataset:
 
 - Big bird
 - Linformer
+- Longformer
 
 ### Installation
 
@@ -178,6 +179,7 @@ The rest dependencies are the same as we mentioned before
 ### Hardware
 
 All training are performed on a Linux machine with GTX3070 GPU.
+Longformer was trained on Google Colab Pro+.
 
 
 
@@ -217,7 +219,22 @@ python run_glue.py \
   --output_dir ../exp/qnli_linformer/
 ```
 
+2. Longformer
 
+```
+!python run_glue.py \
+  --model_name_or_path allenai/longformer-base-4096 \
+  --task_name qnli \
+  --do_train \
+  --do_eval \
+  --max_seq_length 128 \
+  --per_device_train_batch_size 64 \
+  --learning_rate 2e-5 \
+  --num_train_epochs 3 \
+  --output_dir /tmp/qnli-longformer/ \
+  --overwrite_output_dir \
+  --gradient_checkpointing
+```
 
 ### Experimental results
 
