@@ -146,35 +146,7 @@ When looking at the other two models (Bigbird and Longformer), I was able to suc
 
 ## QNLI
 
-### Installation
-
-Note that Linformer model is only supported in specific branch of Hugging Face's transformers library.
-
-The version can be install by the following commands:
-
-```
-pip install git+https://github.com/NielsRogge/transformers.git@modeling_linformer
-```
-
-The rest dependencies are the same as mentioned before
-
-
-
-## Hardware
-
-All training are performed on a Linux server with GTX3070 GPU.
-
-
-
-## Model and Dataset
-
-We explored the QNLI (Stanford Question Answering) dataset. The dataset
-consists of question-paragraph pairs where one of the sentences in the
-paragraph (drawn from wikipedia) contains the answer to the corresponding
-question. The task is converted to into sentence pair classification by forming
-a pair between each question and each sentence in the corresponding text, and
-filtering out pairs with low lexical overlap. The task is to determine whether
-the sentence contains the answer to the question.
+### Model and Dataset
 
 We conducted the following experiments on QNLI dataset.
 
@@ -183,17 +155,37 @@ The following models were trained and evaluated on the dataset:
 - Longformer
 - Linformer
 
+### Installation
+
+Note that Linformer model is only supported by specific branch of Hugging Face's transformers library.
+
+The version can be install by the following commands:
+
+```
+pip install git+https://github.com/NielsRogge/transformers.git@modeling_linformer
+```
+
+The rest dependencies are the same as we mentioned before
+
+
+
+### Hardware
+
+All training are performed on a Linux machine with GTX3070 GPU.
+
+
+
 
 
 ### Code
 
-The experiments can be reproduced by running the script `run_glue.py` (under the path `./qnli`) by the following commands:
+The experiments can be reproduced by running the script `./qnli/run_glue.py`  by the following commands:
 
-1. Longformer
+1. Big bird
 
 ```
 python run_glue.py \
-  --model_name_or_path allenai/longformer-base-4096 \
+  --model_name_or_path google/bigbird-roberta-base \
   --task_name qnli \
   --do_train \
   --do_eval \
@@ -223,16 +215,9 @@ python run_glue.py \
 
 ### Experimental results
 
-**Linformer - eval metrics**
+We train all models within `3` epochs within fixed learning rate `2e-5`.
 
-| Metrics            |            |
-| ------------------ | ---------- |
-| Accuracy           | 0.9079     |
-| Runtime            | 0:00:08.31 |
-| Samples            | 5463       |
-| Samples per second | 657.27     |
-
-
+The results are presented in the following tables.
 
 
 
@@ -247,9 +232,24 @@ python run_glue.py \
 
 
 
+**Linformer - eval metrics**
+
+| Metrics            |            |
+| ------------------ | ---------- |
+| Accuracy           | 0.9079     |
+| Runtime            | 0:00:08.31 |
+| Samples            | 5463       |
+| Samples per second | 657.27     |
+
+
+
+As shown in the table, 
+
 
 
 ![](qnli_loss.png)
+
+
 
 
 
