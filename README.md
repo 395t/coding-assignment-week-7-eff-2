@@ -152,7 +152,7 @@ We conducted the following experiments on QNLI dataset.
 
 The following models were trained and evaluated on the dataset:
 
-- Longformer
+- Big bird
 - Linformer
 
 ### Installation
