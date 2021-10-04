@@ -146,4 +146,33 @@ When looking at the other two models (Bigbird and Longformer), I was able to suc
 
 ## QNLI
 
+### Installation
+
+Note that Linformer model is only supported in specific branch of Hugging Face's transformers library.
+
+The version can be install by the following commands:
+
+```
+pip install git+https://github.com/NielsRogge/transformers.git@modeling_linformer
+```
+
+The rest dependencies are the same as mentioned before
+
+
+
+## Hardware
+
+All training are performed on a Linux server with GTX3070 GPU.
+
+
+
+## Model and Dataset
+
+We conducted the following experiments on QNLI dataset.
+
+The following models were trained and evaluated on the dataset:
+
+- Longformer
+- Linformer
+
 ## QQP
