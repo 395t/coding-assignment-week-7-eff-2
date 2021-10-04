@@ -219,7 +219,7 @@ python run_glue.py \
   --output_dir ../exp/qnli_linformer/
 ```
 
-2. Longformer
+3. Longformer
 
 ```
 !python run_glue.py \
@@ -264,6 +264,15 @@ The results are presented in the following tables.
 | Samples            | 5463       |
 | Samples per second | 657.27     |
 
+
+**Longformer - eval metrics**
+
+| Metrics            |            |
+| ------------------ | ---------- |
+| Accuracy           | 0.9162     |
+| Runtime            | 0:01:48.54 |
+| Samples            | 5463       |
+| Samples per second | 50.382     |
 
 
 As shown in the table, 
